@@ -1,0 +1,181 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Services/AtmaVer.Services.csproj": {}
+  },
+  "projects": {
+    "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Core/AtmaVer.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Core/AtmaVer.Core.csproj",
+        "projectName": "AtmaVer.Core",
+        "projectPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Core/AtmaVer.Core.csproj",
+        "packagesPath": "/Users/mvollstagg/.nuget/packages/",
+        "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Core/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/AtmaVer.Entities.csproj": {
+                "projectPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/AtmaVer.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/AtmaVer.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/AtmaVer.Entities.csproj",
+        "projectName": "AtmaVer.Entities",
+        "projectPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/AtmaVer.Entities.csproj",
+        "packagesPath": "/Users/mvollstagg/.nuget/packages/",
+        "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Services/AtmaVer.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Services/AtmaVer.Services.csproj",
+        "projectName": "AtmaVer.Services",
+        "projectPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Services/AtmaVer.Services.csproj",
+        "packagesPath": "/Users/mvollstagg/.nuget/packages/",
+        "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Services/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Core/AtmaVer.Core.csproj": {
+                "projectPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Core/AtmaVer.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

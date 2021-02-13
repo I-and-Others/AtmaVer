@@ -1,0 +1,12 @@
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/bin/Debug/net5.0/AtmaVer.Entities.deps.json
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/bin/Debug/net5.0/AtmaVer.Entities.dll
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/bin/Debug/net5.0/ref/AtmaVer.Entities.dll
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/bin/Debug/net5.0/AtmaVer.Entities.pdb
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/Debug/net5.0/AtmaVer.Entities.csprojAssemblyReference.cache
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/Debug/net5.0/AtmaVer.Entities.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/Debug/net5.0/AtmaVer.Entities.AssemblyInfoInputs.cache
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/Debug/net5.0/AtmaVer.Entities.AssemblyInfo.cs
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/Debug/net5.0/AtmaVer.Entities.csproj.CoreCompileInputs.cache
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/Debug/net5.0/AtmaVer.Entities.dll
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/Debug/net5.0/ref/AtmaVer.Entities.dll
+/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/Debug/net5.0/AtmaVer.Entities.pdb
