@@ -13,12 +13,16 @@ namespace AtmaVer.Api.Mapping
     {
         public MappingProfile()
         {
+            // Domain to Resource
             CreateMap<User, UserDTO>();
             CreateMap<Role, RoleDTO>();
 
-
+            // Resource to Domain
             CreateMap<UserDTO, User>();
             CreateMap<RoleDTO, Role>();
+
+            CreateMap<CreateUserDTO, User>();
+            CreateMap<CreateRoleDTO, Role>();
         }
     }
 }

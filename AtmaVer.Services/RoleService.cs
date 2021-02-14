@@ -20,8 +20,9 @@ namespace AtmaVer.Services
         public async Task<Role> CreateRole(Role newRole)
         {
             newRole.SlugUrl = newRole.Name.Trim();
-            newRole.UrlId = _unitOfWork.Roles.TotalCount();
+            newRole.UrlId = _unitOfWork.Roles.TotalCount() + 1;
             await _unitOfWork.Roles.AddAsync(newRole);
+            await _unitOfWork.CommitAsync();
             return newRole;
         }
 

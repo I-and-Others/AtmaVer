@@ -17,7 +17,8 @@ using AtmaVer.Data;
 using AtmaVer.Services;
 using Microsoft.EntityFrameworkCore;
 using AtmaVer.Data.DAL;
-
+using AutoMapper;
+using AtmaVer.Api.Mapping;
 namespace AtmaVer.Api
 {
     public class Startup

@@ -13,7 +13,7 @@ using AtmaVer.Api.DTO.RoleDTO;
 
 namespace AtmaVer.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class RolesController : ControllerBase
     {
@@ -34,6 +34,15 @@ namespace AtmaVer.Api.Controllers
             return Ok(rolesResources);
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<RoleDTO>> GetRoleById(int id)
+        {
+            var role = await _roleService.GetRoleById(id);
+            var roleResource = _mapper.Map<Role, RoleDTO>(role);
+
+            return Ok(roleResource);
+        }
+
         [HttpPost("")]
         public async Task<ActionResult<RoleDTO>> CreateRole([FromBody] CreateRoleDTO createRoleResource)
         {
@@ -52,6 +61,41 @@ namespace AtmaVer.Api.Controllers
             var roleResource = _mapper.Map<Role, RoleDTO>(role);
 
             return Ok(roleResource);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<RoleDTO>> UpdateRole(int id, [FromBody] CreateRoleDTO saveRoleResource)
+        {
+            var validator = new CreateRoleResourceValidator();
+            var validationResult = await validator.ValidateAsync(saveRoleResource);
+
+            if (!validationResult.IsValid)
+                return BadRequest(validationResult.Errors); // this needs refining, but for demo it is ok
+
+            var roleToBeUpdated = await _roleService.GetRoleById(id);
+
+            if (roleToBeUpdated == null)
+                return NotFound();
+
+            var role = _mapper.Map<CreateRoleDTO, Role>(saveRoleResource);
+
+            await _roleService.UpdateRole(roleToBeUpdated, role);
+
+            var updatedRole = await _roleService.GetRoleById(id);
+
+            var updatedRoleResource = _mapper.Map<Role, RoleDTO>(updatedRole);
+
+            return Ok(updatedRoleResource);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteRole(int id)
+        {
+            var role = await _roleService.GetRoleById(id);
+
+            await _roleService.DeleteRole(role);
+
+            return NoContent();
         }
     }
 }

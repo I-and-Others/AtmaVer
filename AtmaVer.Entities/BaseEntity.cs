@@ -12,12 +12,12 @@ namespace AtmaVer.Entities
         public int Id { get; set; }
         [Required]
         [DefaultValue(true)]
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
         [Required]
         [DefaultValue(false)]
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } = false;
         public DateTime RecordedAtDate { get; set; } = DateTime.Now;
-        public DateTime UpdatedAtDate { get; set; }
+        public DateTime UpdatedAtDate { get; set; } = DateTime.Now;
         public string SlugUrl { get; set; }
         public int UrlId { get; set; }
     }

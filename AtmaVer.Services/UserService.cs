@@ -29,7 +29,7 @@ namespace AtmaVer.Services
                 IsActive = true
             };
             await _unitOfWork.UserRoles.AddAsync(newUserRole);
-
+            await _unitOfWork.CommitAsync();
             return newUser;
         }
 
