@@ -6,6 +6,6 @@ namespace AtmaVer.Core.Repositories
 {
     public interface IUserRepository : IRepository<User>
     {
-        Task<IEnumerable<User>> GetAllWithRoleAsync(string role);
+        Task<IEnumerable<User>> GetAllWithRoleAsync();
     }
 }

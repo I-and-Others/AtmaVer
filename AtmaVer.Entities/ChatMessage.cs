@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AtmaVer.Entities
@@ -5,6 +6,7 @@ namespace AtmaVer.Entities
     public class ChatMessage : BaseEntity
     {
         public string Message { get; set; }
+        public DateTime SendTime { get; set; }
         [ForeignKey("ChatRoom")]
         public int ChatRoomId { get; set; }
         public virtual ChatRoom ChatRoom { get; set; } 

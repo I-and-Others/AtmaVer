@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AtmaVer.Entities;
 
 namespace AtmaVer.Api.DTO.UserDTO
 {
@@ -17,6 +18,5 @@ namespace AtmaVer.Api.DTO.UserDTO
         public string SecretKey { get; set; } 
         public string Gender { get; set; }
         public DateTime BirthDate { get; set; }
-
     }
 }

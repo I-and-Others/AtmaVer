@@ -13,9 +13,6 @@
         "packagesPath": "/Users/mvollstagg/.nuget/packages/",
         "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Core/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
         ],
@@ -59,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -72,9 +69,6 @@
         "packagesPath": "/Users/mvollstagg/.nuget/packages/",
         "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Data/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
         ],
@@ -137,7 +131,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -150,9 +144,6 @@
         "packagesPath": "/Users/mvollstagg/.nuget/packages/",
         "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
         ],
@@ -192,7 +183,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -205,9 +196,6 @@
         "packagesPath": "/Users/mvollstagg/.nuget/packages/",
         "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Services/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
         ],
@@ -265,7 +253,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
         }
       }
     }

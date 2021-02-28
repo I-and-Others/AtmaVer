@@ -22,6 +22,7 @@ namespace AtmaVer.Api.Mapping
             CreateMap<RoleDTO, Role>();
 
             CreateMap<CreateUserDTO, User>();
+            CreateMap<SaveUserDTO, User>();
             CreateMap<CreateRoleDTO, Role>();
         }
     }

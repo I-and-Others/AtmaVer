@@ -13,10 +13,11 @@ namespace AtmaVer.Data.Repositories
     {
         public UserRepository(ApplicationDbContext context) : base(context) { }
         
-        public async Task<IEnumerable<User>> GetAllWithRoleAsync(string role)
+        public async Task<IEnumerable<User>> GetAllWithRoleAsync()
         {
             return await ApplicationDbContext.Users
                 .Include(a => a.UserRoles)
+                    .ThenInclude(b => b.Role)
                 .ToListAsync();
         }
 

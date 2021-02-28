@@ -42,7 +42,7 @@ namespace AtmaVer.Services
 
         public async Task<IEnumerable<User>> GetAllUsers()
         {
-            return await _unitOfWork.Users.GetAllAsync();
+            return await _unitOfWork.Users.GetAllWithRoleAsync();
         }
 
         public async Task<User> GetUserById(int id)
@@ -53,6 +53,13 @@ namespace AtmaVer.Services
         public async Task UpdateUser(User userToBeUpdated, User user)
         {
             userToBeUpdated.FirstName = user.FirstName;
+            userToBeUpdated.LastName = user.LastName;
+            userToBeUpdated.UserName = user.UserName;
+            userToBeUpdated.Email = user.Email;
+            userToBeUpdated.PhoneNumber = user.PhoneNumber;
+            userToBeUpdated.Gender = user.Gender;
+            userToBeUpdated.BirthDate = user.BirthDate;  
+            userToBeUpdated.PasswordHash = user.PasswordHash;          
 
             await _unitOfWork.CommitAsync();
         }

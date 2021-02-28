@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2CKvWuMQGm5L30bZwhQpeoo3UTIcp4HjTuRVUCfknU67hGcn3wCMeb9owArrheodyUZxf5ENdW6UgEsRyIeLXQ==",
+  "dgSpecHash": "xC8NiuzFHHCbEWbKVSq8L//5uUaQIy1Im91N5DqqIh1KvXOy/wQVKED7eb4tuLaf5coJ+W3QE3MYUDNOEKjwww==",
   "success": true,
   "projectFilePath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Data/AtmaVer.Data.csproj",
   "expectedPackageFiles": [
@@ -82,7 +82,7 @@
     "/Users/mvollstagg/.nuget/packages/system.runtime.interopservices/4.3.0/system.runtime.interopservices.4.3.0.nupkg.sha512",
     "/Users/mvollstagg/.nuget/packages/system.runtime.numerics/4.3.0/system.runtime.numerics.4.3.0.nupkg.sha512",
     "/Users/mvollstagg/.nuget/packages/system.runtime.serialization.formatters/4.3.0/system.runtime.serialization.formatters.4.3.0.nupkg.sha512",
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.runtime.serialization.json/4.3.0/system.runtime.serialization.json.4.3.0.nupkg.sha512",
+    "/Users/mvollstagg/.nuget/packages/system.runtime.serialization.json/4.3.0/system.runtime.serialization.json.4.3.0.nupkg.sha512",
     "/Users/mvollstagg/.nuget/packages/system.runtime.serialization.primitives/4.3.0/system.runtime.serialization.primitives.4.3.0.nupkg.sha512",
     "/Users/mvollstagg/.nuget/packages/system.security.accesscontrol/4.7.0/system.security.accesscontrol.4.7.0.nupkg.sha512",
     "/Users/mvollstagg/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
