@@ -25,6 +25,8 @@ using System.Text;
 using System.Reflection;
 using System.IO;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace AtmaVer.Api
 {
@@ -44,6 +46,7 @@ namespace AtmaVer.Api
             {
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             }).AddJsonOptions(o => o.JsonSerializerOptions.DefaultBufferSize = 300);
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IUserRoleService, UserRoleService>();

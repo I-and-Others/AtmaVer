@@ -13,21 +13,27 @@ using AtmaVer.Services.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using AtmaVer.Api.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace AtmaVer.Api.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme, Roles = "user")]
+    [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme, Roles = "user, admin")]
     public class UsersController : ControllerBase
     {
+        private readonly ILogger<UsersController> _logger;
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
         private readonly LoginUser loginUser;
-        public UsersController(IUserService userService, IMapper mapper, IHttpContextAccessor httpContext)
+        public UsersController(IUserService userService, 
+                                IMapper mapper, 
+                                IHttpContextAccessor httpContext,
+                                ILogger<UsersController> logger)
         {
             this._userService = userService;
             this._mapper = mapper;
+            this._logger = logger;
 
             var token = httpContext.HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
             if (token != null)
@@ -70,6 +76,15 @@ namespace AtmaVer.Api.Controllers
         public async Task<ActionResult<UserDTO>> GetUserById(int id)
         {
             var user = await _userService.GetUserById(id);
+            var userResource = _mapper.Map<User, UserDTO>(user);
+
+            return Ok(userResource);
+        }
+
+        [HttpGet("")]
+        public async Task<ActionResult<UserDTO>> GetCurrentUser()
+        {
+            var user = await _userService.GetUserById(loginUser.Id);
             var userResource = _mapper.Map<User, UserDTO>(user);
 
             return Ok(userResource);

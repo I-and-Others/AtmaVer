@@ -82,6 +82,7 @@ namespace AtmaVer.Api.Controllers
 
                 var claims = new []
                 {
+                    new Claim(ClaimTypes.Actor, user.Id.ToString()),
                     new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                     new Claim(JwtRegisteredClaimNames.Email, user.Email),
                     new Claim(ClaimTypes.Role, "user"),
