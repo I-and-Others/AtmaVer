@@ -10,11 +10,13 @@ using AtmaVer.Api.Validators;
 using AtmaVer.Api.DTO;
 using AtmaVer.Services.Helpers;
 using AtmaVer.Api.DTO.RoleDTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AtmaVer.Api.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme, Roles = "user")]
     public class RolesController : ControllerBase
     {
         private readonly IRoleService _roleService;

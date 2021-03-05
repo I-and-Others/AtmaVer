@@ -10,19 +10,31 @@ using AtmaVer.Api.DTO.UserDTO;
 using AtmaVer.Api.Validators;
 using AtmaVer.Api.DTO;
 using AtmaVer.Services.Helpers;
+using Microsoft.AspNetCore.Authorization;
+using AtmaVer.Api.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace AtmaVer.Api.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme, Roles = "user")]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
-        public UsersController(IUserService userService, IMapper mapper)
+        private readonly LoginUser loginUser;
+        public UsersController(IUserService userService, IMapper mapper, IHttpContextAccessor httpContext)
         {
             this._userService = userService;
             this._mapper = mapper;
+
+            var token = httpContext.HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            if (token != null)
+            {
+                JwtDecoder jwtHelper = new JwtDecoder();
+                loginUser = jwtHelper.DecodeJwt(token);
+            }
         }
 
         [HttpGet("")]

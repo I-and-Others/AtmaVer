@@ -19,6 +19,11 @@ using Microsoft.EntityFrameworkCore;
 using AtmaVer.Data.DAL;
 using AutoMapper;
 using AtmaVer.Api.Mapping;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.Reflection;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace AtmaVer.Api
@@ -35,7 +40,10 @@ namespace AtmaVer.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            }).AddJsonOptions(o => o.JsonSerializerOptions.DefaultBufferSize = 300);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IUserRoleService, UserRoleService>();
@@ -46,11 +54,62 @@ namespace AtmaVer.Api
             });
             services.AddControllers().AddJsonOptions(o => o.JsonSerializerOptions.DefaultBufferSize = 300);
             services.AddDbContext<ApplicationDbContext>(options => options
-                                                                .UseSqlServer(Configuration.GetConnectionString("DevConnection"), x => x.MigrationsAssembly("AtmaVer.Data")));
+                                                        .UseSqlServer(Configuration.GetConnectionString("DevConnection"), x => x.MigrationsAssembly("AtmaVer.Data")));
+
+            services.AddAuthentication(option => {  
+                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;  
+                option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;    
+            })
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        ValidAudience = Configuration["Jwt:Issuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                    };
+                });
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AtmaVer.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "AtmaVerApi"
+                });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Description = "Enter JWT Bearer authorisation token",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer", // must be lowercase!!!
+                    BearerFormat = "JWT",
+                    Reference = new OpenApiReference
+                    {
+                        Id = JwtBearerDefaults.AuthenticationScheme,
+                        Type = ReferenceType.SecurityScheme
+                    }
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                          new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Type = ReferenceType.SecurityScheme,
+                                    Id = "Bearer"
+                                }
+                            },
+                            new string[] {}
+                    }
+                });
+
             });
             services.AddAutoMapper(typeof(Startup));
         }
@@ -63,10 +122,10 @@ namespace AtmaVer.Api
                 Formatting = Newtonsoft.Json.Formatting.Indented,
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             };
-            
+
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();                
+                app.UseDeveloperExceptionPage();
             }
 
             app.UseSwagger();
