@@ -1,16 +1,19 @@
 import 'dart:ui';
 
+import 'package:atmaver_demo/Message.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class AdvertisementDetail extends StatelessWidget {
-  String imageURL, title, location, type;
+  String imageURL, title, location, type, description;
 
   AdvertisementDetail(
       {Key key,
       @required this.imageURL,
       @required this.title,
       @required this.location,
-      @required this.type})
+      @required this.type,
+      @required this.description})
       : super(key: key);
 
   @override
@@ -34,11 +37,11 @@ class AdvertisementDetail extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.only(left: 12.0, right: 12.0),
-                margin: EdgeInsets.only(top: 30.0),
-                width: MediaQuery.of(context).size.width - 10,
+                margin: EdgeInsets.only(top: 50.0, bottom: 40.0),
+                width: MediaQuery.of(context).size.width - 0,
                 child: Text(
-                  "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.kullanılan mıgır metinlerdir.Lorem Ipsum, dizgi ve baskı",
-                  textAlign: TextAlign.left,
+                  this.description,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18.0,
                     height: 1.3,
@@ -60,15 +63,19 @@ class AdvertisementDetail extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Icon(
-                              Icons.account_box,
-                              color: Colors.blue,
-                              size: 50.0,
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(25.0),
+                              child: Image.network(
+                                "https://i.hizliresim.com/3pDKIs.jpg",
+                                width: 50,
+                                height: 50,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             Container(
                               margin: EdgeInsets.only(left: 10.0),
                               child: Text(
-                                "Omer",
+                                "Bilal Cinal",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     fontSize: 20.0,
@@ -100,7 +107,7 @@ class AdvertisementDetail extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(40.0),
                       child: Image.network(
-                        "https://docs.microsoft.com/tr-tr/azure/azure-maps/media/migrate-google-maps-web-app/google-maps-marker.png",
+                        "https://i.hizliresim.com/rPsny7.png",
                         width: MediaQuery.of(context).size.width - 40,
                         fit: BoxFit.cover,
                       ),
@@ -123,26 +130,40 @@ class AdvertisementDetail extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            children: [
-              TextField(
-                style: TextStyle(fontSize: 20, color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Ara...",
-                  hintStyle: TextStyle(fontSize: 20.0, color: Colors.black),
-                ),
+          Container(
+            // width: MediaQuery.of(context).size.width - 50,
+            margin: EdgeInsets.only(
+                left: 20.0, right: 20.0, top: 10.0, bottom: 10.0),
+            child: TextField(
+              style: TextStyle(fontSize: 20, color: Colors.black),
+              decoration: InputDecoration(
+                hintText: "Mesaj Gönder",
+                hintStyle: TextStyle(fontSize: 20.0, color: Colors.black),
               ),
-              RaisedButton(
-                color: Color.fromARGB(255, 34, 40, 49),
-                elevation: 10,
-                child: Text(
-                  "Gönder",
-                  style: TextStyle(color: Colors.white, fontSize: 18.0),
-                ),
-                onPressed: null,
-              ),
-            ],
+            ),
           ),
+          Container(
+            height: 40.0,
+            margin: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
+            // ignore: deprecated_member_use
+            child: RaisedButton(
+              color: Color(0xFF00adb5),
+              elevation: 10,
+              child: Text(
+                "Gönder",
+                style: TextStyle(color: Colors.white, fontSize: 20.0),
+              ),
+              onPressed: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Message(),
+                    ))
+              },
+            ),
+          ),
+
+          // ignore: deprecated_member_use
         ],
       ),
     );
