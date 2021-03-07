@@ -53,10 +53,7 @@ namespace AtmaVer.Data.DAL
             {
                 Id = 1,
                 UserId = admin.Id,
-                RoleId = adminRole.Id,
-                SlugUrl = "adminrole",
-                UrlId = 1,
-                IsActive = true
+                RoleId = adminRole.Id
             };
 
             modelBuilder.Entity<UserRole>().HasData(adminUserRole);

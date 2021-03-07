@@ -107,14 +107,9 @@ namespace AtmaVer.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Message = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SendTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ChatRoomId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    RecordedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SlugUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UrlId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -164,13 +159,7 @@ namespace AtmaVer.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PhotoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    RecordedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SlugUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UrlId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -190,13 +179,7 @@ namespace AtmaVer.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    RoleId = table.Column<int>(type: "int", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    RecordedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SlugUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UrlId = table.Column<int>(type: "int", nullable: false)
+                    RoleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -240,6 +223,32 @@ namespace AtmaVer.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AdvertisementId = table.Column<int>(type: "int", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    RecordedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    SlugUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UrlId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Categories_Advertisements_AdvertisementId",
+                        column: x => x.AdvertisementId,
+                        principalTable: "Advertisements",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -248,13 +257,7 @@ namespace AtmaVer.Data.Migrations
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Condition = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AdvertisementId = table.Column<int>(type: "int", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    RecordedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SlugUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UrlId = table.Column<int>(type: "int", nullable: false)
+                    AdvertisementId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -268,45 +271,13 @@ namespace AtmaVer.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    RecordedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SlugUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UrlId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Categories_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ProductImages",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PhotoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    RecordedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAtDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SlugUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UrlId = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -322,22 +293,22 @@ namespace AtmaVer.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "IsActive", "IsDeleted", "Name", "RecordedAtDate", "SlugUrl", "UpdatedAtDate", "UrlId" },
-                values: new object[] { 1, true, false, "admin", new DateTime(2021, 2, 12, 22, 3, 2, 817, DateTimeKind.Local).AddTicks(4920), "admin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 });
+                values: new object[] { 1, true, false, "admin", new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(1810), "admin", new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(1850), 1 });
 
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "IsActive", "IsDeleted", "Name", "RecordedAtDate", "SlugUrl", "UpdatedAtDate", "UrlId" },
-                values: new object[] { 2, true, false, "user", new DateTime(2021, 2, 12, 22, 3, 2, 817, DateTimeKind.Local).AddTicks(7760), "user", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 });
+                values: new object[] { 2, true, false, "user", new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(8240), "user", new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(8270), 2 });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "BirthDate", "Email", "FirstName", "Gender", "IsActive", "IsDeleted", "LastName", "PasswordHash", "PhoneNumber", "RecordedAtDate", "SecretKey", "SlugUrl", "UpdatedAtDate", "UrlId", "UserName" },
-                values: new object[] { 1, new DateTime(2021, 2, 12, 22, 3, 2, 806, DateTimeKind.Local).AddTicks(8120), "admin@admin.com", "Admin", "Male", true, false, "Admin", "89b611441ce1c1bbee7f9004b9c1fb732925778b6b70dc57f0c6e265e1c26f0960c39669a83d3a0adc119e3561231b14ca0e061de5631f941549b57730d06f7e", "0534 895 22 84", new DateTime(2021, 2, 12, 22, 3, 2, 806, DateTimeKind.Local).AddTicks(2030), "717e106429874d9d84e05689fd79555d2/12/2021100302PM", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "mvollstagg" });
+                values: new object[] { 1, new DateTime(2021, 3, 7, 2, 36, 6, 761, DateTimeKind.Local).AddTicks(5440), "admin@admin.com", "Admin", "Male", true, false, "Admin", "0e1454d315361d746cc6e5a3f89c1288e2cb40cc028587659dabf8d6d605e475f530e8030a8930f521cfd25f5d7fd44f44b752da71b2e235fcdc996e6912fc0c", "0534 895 22 84", new DateTime(2021, 3, 7, 2, 36, 6, 761, DateTimeKind.Local).AddTicks(420), "2607dee3756d42bf89e231e1fd68b6243/7/202123606AM", null, new DateTime(2021, 3, 7, 2, 36, 6, 761, DateTimeKind.Local).AddTicks(480), 0, "mvollstagg" });
 
             migrationBuilder.InsertData(
                 table: "UserRoles",
-                columns: new[] { "Id", "IsActive", "IsDeleted", "RecordedAtDate", "RoleId", "SlugUrl", "UpdatedAtDate", "UrlId", "UserId" },
-                values: new object[] { 1, true, false, new DateTime(2021, 2, 12, 22, 3, 2, 817, DateTimeKind.Local).AddTicks(9440), 1, "adminrole", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1 });
+                columns: new[] { "Id", "RoleId", "UserId" },
+                values: new object[] { 1, 1, 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AdvertisementChatRoom_ChatRoomsId",
@@ -350,9 +321,9 @@ namespace AtmaVer.Data.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categories_ProductId",
+                name: "IX_Categories_AdvertisementId",
                 table: "Categories",
-                column: "ProductId",
+                column: "AdvertisementId",
                 unique: true);
 
             migrationBuilder.CreateIndex(

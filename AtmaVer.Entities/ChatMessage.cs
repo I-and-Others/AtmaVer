@@ -1,10 +1,14 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AtmaVer.Entities
 {
-    public class ChatMessage : BaseEntity
+    public class ChatMessage
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public string Message { get; set; }
         public DateTime SendTime { get; set; }
         [ForeignKey("ChatRoom")]

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AtmaVer.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210212190304_v1Initial")]
+    [Migration("20210306233608_v1Initial")]
     partial class v1Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -84,6 +84,9 @@ namespace AtmaVer.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AdvertisementId")
+                        .HasColumnType("int");
+
                     b.Property<string>("CategoryName")
                         .HasColumnType("nvarchar(max)");
 
@@ -92,9 +95,6 @@ namespace AtmaVer.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("RecordedAtDate")
                         .HasColumnType("datetime2");
@@ -110,7 +110,7 @@ namespace AtmaVer.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId")
+                    b.HasIndex("AdvertisementId")
                         .IsUnique();
 
                     b.ToTable("Categories");
@@ -126,26 +126,11 @@ namespace AtmaVer.Data.Migrations
                     b.Property<int>("ChatRoomId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("RecordedAtDate")
+                    b.Property<DateTime>("SendTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("SlugUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAtDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UrlId")
-                        .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -211,26 +196,8 @@ namespace AtmaVer.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RecordedAtDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SlugUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAtDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UrlId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -247,28 +214,10 @@ namespace AtmaVer.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<string>("PhotoUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("RecordedAtDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SlugUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAtDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UrlId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -317,9 +266,9 @@ namespace AtmaVer.Data.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Name = "admin",
-                            RecordedAtDate = new DateTime(2021, 2, 12, 22, 3, 2, 817, DateTimeKind.Local).AddTicks(4920),
+                            RecordedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(1810),
                             SlugUrl = "admin",
-                            UpdatedAtDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(1850),
                             UrlId = 1
                         },
                         new
@@ -328,9 +277,9 @@ namespace AtmaVer.Data.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Name = "user",
-                            RecordedAtDate = new DateTime(2021, 2, 12, 22, 3, 2, 817, DateTimeKind.Local).AddTicks(7760),
+                            RecordedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(8240),
                             SlugUrl = "user",
-                            UpdatedAtDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(8270),
                             UrlId = 2
                         });
                 });
@@ -405,18 +354,18 @@ namespace AtmaVer.Data.Migrations
                         new
                         {
                             Id = 1,
-                            BirthDate = new DateTime(2021, 2, 12, 22, 3, 2, 806, DateTimeKind.Local).AddTicks(8120),
+                            BirthDate = new DateTime(2021, 3, 7, 2, 36, 6, 761, DateTimeKind.Local).AddTicks(5440),
                             Email = "admin@admin.com",
                             FirstName = "Admin",
                             Gender = "Male",
                             IsActive = true,
                             IsDeleted = false,
                             LastName = "Admin",
-                            PasswordHash = "89b611441ce1c1bbee7f9004b9c1fb732925778b6b70dc57f0c6e265e1c26f0960c39669a83d3a0adc119e3561231b14ca0e061de5631f941549b57730d06f7e",
+                            PasswordHash = "0e1454d315361d746cc6e5a3f89c1288e2cb40cc028587659dabf8d6d605e475f530e8030a8930f521cfd25f5d7fd44f44b752da71b2e235fcdc996e6912fc0c",
                             PhoneNumber = "0534 895 22 84",
-                            RecordedAtDate = new DateTime(2021, 2, 12, 22, 3, 2, 806, DateTimeKind.Local).AddTicks(2030),
-                            SecretKey = "717e106429874d9d84e05689fd79555d2/12/2021100302PM",
-                            UpdatedAtDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RecordedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 761, DateTimeKind.Local).AddTicks(420),
+                            SecretKey = "2607dee3756d42bf89e231e1fd68b6243/7/202123606AM",
+                            UpdatedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 761, DateTimeKind.Local).AddTicks(480),
                             UrlId = 0,
                             UserName = "mvollstagg"
                         });
@@ -429,26 +378,8 @@ namespace AtmaVer.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<string>("PhotoUrl")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RecordedAtDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SlugUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAtDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UrlId")
-                        .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -468,25 +399,7 @@ namespace AtmaVer.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("RecordedAtDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SlugUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAtDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UrlId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")
@@ -504,13 +417,7 @@ namespace AtmaVer.Data.Migrations
                         new
                         {
                             Id = 1,
-                            IsActive = true,
-                            IsDeleted = false,
-                            RecordedAtDate = new DateTime(2021, 2, 12, 22, 3, 2, 817, DateTimeKind.Local).AddTicks(9440),
                             RoleId = 1,
-                            SlugUrl = "adminrole",
-                            UpdatedAtDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UrlId = 1,
                             UserId = 1
                         });
                 });
@@ -558,13 +465,13 @@ namespace AtmaVer.Data.Migrations
 
             modelBuilder.Entity("AtmaVer.Entities.Category", b =>
                 {
-                    b.HasOne("AtmaVer.Entities.Product", "Product")
+                    b.HasOne("AtmaVer.Entities.Advertisement", "Advertisement")
                         .WithOne("Category")
-                        .HasForeignKey("AtmaVer.Entities.Category", "ProductId")
+                        .HasForeignKey("AtmaVer.Entities.Category", "AdvertisementId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.Navigation("Advertisement");
                 });
 
             modelBuilder.Entity("AtmaVer.Entities.ChatMessage", b =>
@@ -655,6 +562,8 @@ namespace AtmaVer.Data.Migrations
 
             modelBuilder.Entity("AtmaVer.Entities.Advertisement", b =>
                 {
+                    b.Navigation("Category");
+
                     b.Navigation("Product");
                 });
 
@@ -665,8 +574,6 @@ namespace AtmaVer.Data.Migrations
 
             modelBuilder.Entity("AtmaVer.Entities.Product", b =>
                 {
-                    b.Navigation("Category");
-
                     b.Navigation("ProductPhotos");
                 });
 

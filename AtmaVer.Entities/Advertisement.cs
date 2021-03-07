@@ -7,6 +7,7 @@ namespace AtmaVer.Entities
     {
         public bool IsDemand { get; set; }
         public bool IsExchange { get; set; }
+        public virtual Category Category { get; set; }
         public virtual Product Product { get; set; }        
         [ForeignKey("User")]
         public int UserId { get; set; }

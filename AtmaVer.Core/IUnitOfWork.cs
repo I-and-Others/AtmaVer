@@ -8,6 +8,8 @@ namespace AtmaVer.Core
         IUserRepository Users { get; }
         IUserRoleRepository UserRoles { get; }
         IRoleRepository Roles { get; }
+        IAdvertisementRepository Advertisements { get; }
+        IProductRepository Products { get; }
         Task<int> CommitAsync();
     }
 }

@@ -12,6 +12,8 @@ namespace AtmaVer.Data
         private UserRepository _userRepository;
         private UserRoleRepository _userRoleRepository;
         private RoleRepository _roleRepository;
+        private AdvertisementRepository _advertisementRepository;
+        private ProductRepository _productRepository;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -23,6 +25,8 @@ namespace AtmaVer.Data
         public IUserRoleRepository UserRoles => _userRoleRepository = _userRoleRepository ?? new UserRoleRepository(_context);
 
         public IRoleRepository Roles => _roleRepository = _roleRepository ?? new RoleRepository(_context);
+        public IAdvertisementRepository Advertisements => _advertisementRepository = _advertisementRepository ?? new AdvertisementRepository(_context);
+        public IProductRepository Products => _productRepository = _productRepository ?? new ProductRepository(_context);
 
         public async Task<int> CommitAsync()
         {

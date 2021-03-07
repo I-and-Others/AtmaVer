@@ -22,10 +22,7 @@ namespace AtmaVer.Services
             UserRole newUserRole = new UserRole
             {
                 UserId = userId,
-                RoleId = roleId,
-                SlugUrl = "user-role",
-                UrlId = _unitOfWork.UserRoles.TotalCount() + 1,
-                IsActive = true
+                RoleId = roleId
             };
             await _unitOfWork.UserRoles.AddAsync(newUserRole);
             await _unitOfWork.CommitAsync();

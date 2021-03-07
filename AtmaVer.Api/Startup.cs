@@ -48,9 +48,10 @@ namespace AtmaVer.Api
             }).AddJsonOptions(o => o.JsonSerializerOptions.DefaultBufferSize = 300);
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<IUserService, UserService>();
-            services.AddTransient<IUserRoleService, UserRoleService>();
-            services.AddTransient<IRoleService, RoleService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRoleService, UserRoleService>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IAdvertisementService, AdvertisementService>();
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().Build());

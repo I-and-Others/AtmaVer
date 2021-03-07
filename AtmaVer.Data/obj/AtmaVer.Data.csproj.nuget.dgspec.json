@@ -58,6 +58,11 @@
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
         }
+      },
+      "runtimes": {
+        "win10-x86": {
+          "#import": []
+        }
       }
     },
     "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Data/AtmaVer.Data.csproj": {
@@ -133,6 +138,11 @@
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
         }
+      },
+      "runtimes": {
+        "win10-x86": {
+          "#import": []
+        }
       }
     },
     "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/AtmaVer.Entities.csproj": {
@@ -184,6 +194,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win10-x86": {
+          "#import": []
         }
       }
     },
@@ -254,6 +269,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win10-x86": {
+          "#import": []
         }
       }
     }
