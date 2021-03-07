@@ -1,7 +1,8 @@
 import 'package:atmaver_demo/Advertisement.dart';
 import 'package:flutter/material.dart';
 
-import 'Trade.dart';
+import 'Messages.dart';
+import 'Settings.dart';
 
 class Layout extends StatefulWidget {
   @override
@@ -12,10 +13,8 @@ class _LayoutState extends State<Layout> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     Advertisement(),
-    Trade(),
-    Text(
-      'Index 2: School',
-    ),
+    Messages(),
+    Settings(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -34,9 +33,14 @@ class _LayoutState extends State<Layout> {
             decoration: InputDecoration(
               hintText: "Ara...",
               hintStyle: TextStyle(fontSize: 20.0, color: Colors.white),
+              border: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              errorBorder: InputBorder.none,
+              disabledBorder: InputBorder.none,
               prefixIcon: Icon(
                 Icons.search,
-                color: Color.fromARGB(255, 34, 40, 49),
+                color: Color(0xFFEEEEEE),
               ),
             ),
           ),
@@ -45,11 +49,14 @@ class _LayoutState extends State<Layout> {
           Container(
             padding: EdgeInsets.all(8.0),
             child: RaisedButton(
-              color: Color.fromARGB(255, 34, 40, 49),
+              color: Color(0xFF00adb5),
               elevation: 10,
               child: Text(
                 "Filtrele",
-                style: TextStyle(color: Colors.white, fontSize: 18.0),
+                style: TextStyle(
+                  color: Color(0xFFEEEEEE),
+                  fontSize: 18.0,
+                ),
               ),
               onPressed: () {},
             ),
@@ -57,18 +64,19 @@ class _LayoutState extends State<Layout> {
         ],
       ),
       body: Container(
-        margin: EdgeInsets.only(top: 10.0),
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color(0xFF222831),
+        unselectedItemColor: Color(0xFFFFFFFF),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Anasayfa',
+            icon: Icon(Icons.list),
+            label: 'İlanlar',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.explicit_sharp),
-            label: 'Takas',
+            icon: Icon(Icons.message),
+            label: 'Mesajlar',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
@@ -76,7 +84,7 @@ class _LayoutState extends State<Layout> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color(0xFF00adb5),
         onTap: _onItemTapped,
       ),
     );
