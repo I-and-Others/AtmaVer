@@ -1,4 +1,4 @@
-package com.example.atmaver_demo
+package com.example.atmaver_real
 
 import io.flutter.embedding.android.FlutterActivity
 

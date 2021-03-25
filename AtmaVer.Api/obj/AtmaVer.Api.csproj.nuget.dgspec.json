@@ -13,6 +13,9 @@
         "packagesPath": "/Users/mvollstagg/.nuget/packages/",
         "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Api/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
         ],
@@ -93,20 +96,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-              "version": "[5.0.3, 5.0.3]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x86",
-              "version": "[5.0.3, 5.0.3]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x86",
-              "version": "[5.0.3, 5.0.3]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -116,11 +105,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win10-x86": {
-          "#import": []
         }
       }
     },
@@ -133,6 +117,9 @@
         "packagesPath": "/Users/mvollstagg/.nuget/packages/",
         "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Core/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
         ],
@@ -178,11 +165,6 @@
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
         }
-      },
-      "runtimes": {
-        "win10-x86": {
-          "#import": []
-        }
       }
     },
     "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Data/AtmaVer.Data.csproj": {
@@ -194,6 +176,9 @@
         "packagesPath": "/Users/mvollstagg/.nuget/packages/",
         "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Data/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
         ],
@@ -258,11 +243,6 @@
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
         }
-      },
-      "runtimes": {
-        "win10-x86": {
-          "#import": []
-        }
       }
     },
     "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/AtmaVer.Entities.csproj": {
@@ -274,6 +254,9 @@
         "packagesPath": "/Users/mvollstagg/.nuget/packages/",
         "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
         ],
@@ -315,11 +298,6 @@
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
         }
-      },
-      "runtimes": {
-        "win10-x86": {
-          "#import": []
-        }
       }
     },
     "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Services/AtmaVer.Services.csproj": {
@@ -331,6 +309,9 @@
         "packagesPath": "/Users/mvollstagg/.nuget/packages/",
         "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Services/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
         ],
@@ -389,11 +370,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win10-x86": {
-          "#import": []
         }
       }
     }
