@@ -1,5 +1,8 @@
 import 'package:atmaver_real/Layout/StreamLayout.dart';
+import 'package:atmaver_real/api/api_service.dart';
+import 'package:atmaver_real/model/login_model.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -7,6 +10,13 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  LoginRequestModel loginRequestModel;
+  @override
+  void initState() {
+    super.initState();
+    loginRequestModel = new LoginRequestModel();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +43,7 @@ class _LoginState extends State<Login> {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: TextField(
+                    onChanged: (input) => loginRequestModel.email = input,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Email',
@@ -43,6 +54,7 @@ class _LoginState extends State<Login> {
                   margin: EdgeInsets.only(bottom: 24.0, top: 24.0),
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: TextField(
+                    onChanged: (input) => loginRequestModel.password = input,
                     obscureText: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
@@ -59,10 +71,22 @@ class _LoginState extends State<Login> {
                       style: TextStyle(fontSize: 20.0),
                     ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Layout()),
-                      );
+                      print(loginRequestModel.toJson());
+                      APIService apiService = new APIService();
+                      apiService.login(loginRequestModel).then((value) {
+                        if (value != null) {
+                          if (value.token.isNotEmpty) {
+                            print("token:" + value.token);
+                            checkLogin(value.token);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Layout()),
+                            );
+                          } else {
+                            print("başarısız");
+                          }
+                        }
+                      });
                     },
                   ),
                 ),
@@ -73,4 +97,9 @@ class _LoginState extends State<Login> {
       ),
     );
   }
+}
+
+Future checkLogin(String token) async{
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  preferences.setString('token', token);
 }

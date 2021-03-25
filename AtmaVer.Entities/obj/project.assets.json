@@ -1,15 +1,15 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {},
-    "net5.0/win10-x86": {}
+    "net5.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
     "net5.0": []
   },
   "packageFolders": {
-    "/Users/mvollstagg/.nuget/packages/": {}
+    "/Users/mvollstagg/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -20,6 +20,9 @@
       "packagesPath": "/Users/mvollstagg/.nuget/packages/",
       "outputPath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Entities/obj/",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      ],
       "configFilePaths": [
         "/Users/mvollstagg/.nuget/NuGet/NuGet.Config"
       ],
@@ -60,11 +63,6 @@
           }
         },
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
-      }
-    },
-    "runtimes": {
-      "win10-x86": {
-        "#import": []
       }
     }
   }
