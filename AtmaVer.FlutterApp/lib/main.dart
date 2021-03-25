@@ -1,5 +1,6 @@
 import 'package:atmaver_real/Layout/StreamLayout.dart';
 import 'package:flutter/material.dart';
+import 'package:jwt_decode/jwt_decode.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'components/intro.dart';
@@ -8,6 +9,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences preferences = await SharedPreferences.getInstance();
   var token = preferences.getString('token');
+  if(token != null)
+    jwtDecoder(token);
   runApp(MyApp(token: token));
 }
 
@@ -40,4 +43,11 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
+}
+
+String jwtDecoder(String token) {
+  Map<String, dynamic> payload = Jwt.parseJwt(token);
+
+  print(payload['sub']);
+  return null;
 }

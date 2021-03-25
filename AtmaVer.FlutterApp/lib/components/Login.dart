@@ -1,6 +1,7 @@
 import 'package:atmaver_real/Layout/StreamLayout.dart';
 import 'package:atmaver_real/api/api_service.dart';
 import 'package:atmaver_real/model/login_model.dart';
+import 'package:atmaver_real/model/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -101,5 +102,10 @@ class _LoginState extends State<Login> {
 
 Future checkLogin(String token) async{
   SharedPreferences preferences = await SharedPreferences.getInstance();
+  JwtDecoder jwtDecoder = new JwtDecoder();
+  String username = jwtDecoder.decode(token)["sub"];
+  
   preferences.setString('token', token);
+  preferences.setString('username', username);
+  print("Username aha budur:" + preferences.getString('username'));
 }
