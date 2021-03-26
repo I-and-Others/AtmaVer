@@ -7,31 +7,33 @@ class AddingAd extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("İlan Ekle"),
+        title: Text("Add advertisement"),
       ),
-      body: Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.9,
-          margin: EdgeInsets.only(top: 20),
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.only(bottom: 30),
-                child: Text(
-                  "Hangi kategori?",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.only(top: 50, bottom: 100),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: EdgeInsets.only(bottom: 30),
+              child: Text(
+                "Which category?",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  child: Column(
                     children: [
                       Container(
-                        width: 60,
-                        height: 60,
+                        width: 75,
+                        height: 75,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(40),
                           color: Colors.blue,
                         ),
                         child: IconButton(
@@ -42,7 +44,8 @@ class AddingAd extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => AddingAd2(),
+                                  builder: (context) =>
+                                      AddingAd2(selectedCategory: 'Technology'),
                                 ));
                           },
                         ),
@@ -51,314 +54,305 @@ class AddingAd extends StatelessWidget {
                         height: 7,
                       ),
                       Text(
-                        "Teknoloji",
+                        "Technology",
                         style: TextStyle(fontSize: 16),
                       )
                     ],
                   ),
-                  Column(
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  child: Column(
                     children: [
                       Container(
-                        width: 60,
-                        height: 60,
+                        width: 75,
+                        height: 75,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(40),
                           color: Colors.green[400],
                         ),
                         child: IconButton(
                           iconSize: 30.0,
                           color: Colors.white,
                           icon: const Icon(Icons.gamepad),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      AddingAd2(selectedCategory: "Game"),
+                                ));
+                          },
                         ),
                       ),
                       SizedBox(
                         height: 7,
                       ),
                       Text(
-                        "Oyun",
+                        "Game",
                         style: TextStyle(fontSize: 16),
                       )
                     ],
                   ),
-                  Column(
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  child: Column(
                     children: [
                       Container(
-                        width: 60,
-                        height: 60,
+                        width: 75,
+                        height: 75,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(40),
                           color: Colors.blue,
                         ),
                         child: IconButton(
                           iconSize: 30.0,
                           color: Colors.white,
                           icon: const Icon(Icons.deck_sharp),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      AddingAd2(selectedCategory: "Home"),
+                                ));
+                          },
                         ),
                       ),
                       SizedBox(
                         height: 7,
                       ),
                       Text(
-                        "Ev Eşyaları",
+                        "Home",
                         style: TextStyle(fontSize: 16),
                       )
                     ],
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  child: Column(
                     children: [
                       Container(
-                        width: 60,
-                        height: 60,
+                        width: 75,
+                        height: 75,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(40),
+                          color: Colors.pink,
                         ),
                         child: IconButton(
                           iconSize: 30.0,
                           color: Colors.white,
-                          icon: const Icon(Icons.phone_android),
-                          onPressed: () {},
+                          icon: const Icon(Icons.accessibility_new),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      AddingAd2(selectedCategory: "Clothing"),
+                                ));
+                          },
                         ),
                       ),
                       SizedBox(
                         height: 7,
                       ),
                       Text(
-                        "Teknoloji",
+                        "Clothing",
                         style: TextStyle(fontSize: 16),
                       )
                     ],
                   ),
-                  Column(
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  child: Column(
                     children: [
                       Container(
-                        width: 60,
-                        height: 60,
+                        width: 75,
+                        height: 75,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green[400],
+                          borderRadius: BorderRadius.circular(40),
+                          color: Colors.orange,
                         ),
                         child: IconButton(
                           iconSize: 30.0,
                           color: Colors.white,
-                          icon: const Icon(Icons.gamepad),
-                          onPressed: () {},
+                          icon: const Icon(Icons.baby_changing_station),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      AddingAd2(selectedCategory: "Baby"),
+                                ));
+                          },
                         ),
                       ),
                       SizedBox(
                         height: 7,
                       ),
                       Text(
-                        "Oyun",
+                        "Baby",
                         style: TextStyle(fontSize: 16),
                       )
                     ],
                   ),
-                  Column(
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  child: Column(
                     children: [
                       Container(
-                        width: 60,
-                        height: 60,
+                        width: 75,
+                        height: 75,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(40),
+                          color: Colors.red,
                         ),
                         child: IconButton(
                           iconSize: 30.0,
                           color: Colors.white,
-                          icon: const Icon(Icons.deck_sharp),
-                          onPressed: () {},
+                          icon: const Icon(Icons.lightbulb),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      AddingAd2(selectedCategory: "Decoration"),
+                                ));
+                          },
                         ),
                       ),
                       SizedBox(
                         height: 7,
                       ),
                       Text(
-                        "Ev Eşyaları",
+                        "Decoration",
                         style: TextStyle(fontSize: 16),
                       )
                     ],
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  child: Column(
                     children: [
                       Container(
-                        width: 60,
-                        height: 60,
+                        width: 75,
+                        height: 75,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(40),
+                          color: Colors.grey,
                         ),
                         child: IconButton(
                           iconSize: 30.0,
                           color: Colors.white,
-                          icon: const Icon(Icons.phone_android),
-                          onPressed: () {},
+                          icon: const Icon(Icons.book),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      AddingAd2(selectedCategory: "Book"),
+                                ));
+                          },
                         ),
                       ),
                       SizedBox(
                         height: 7,
                       ),
                       Text(
-                        "Teknoloji",
+                        "Book",
                         style: TextStyle(fontSize: 16),
                       )
                     ],
                   ),
-                  Column(
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  child: Column(
                     children: [
                       Container(
-                        width: 60,
-                        height: 60,
+                        width: 75,
+                        height: 75,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green[400],
+                          borderRadius: BorderRadius.circular(40),
+                          color: Colors.purple[400],
                         ),
                         child: IconButton(
                           iconSize: 30.0,
                           color: Colors.white,
-                          icon: const Icon(Icons.gamepad),
-                          onPressed: () {},
+                          icon: const Icon(Icons.fast_forward_rounded),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      AddingAd2(selectedCategory: "Fun"),
+                                ));
+                          },
                         ),
                       ),
                       SizedBox(
                         height: 7,
                       ),
                       Text(
-                        "Oyun",
+                        "Fun",
                         style: TextStyle(fontSize: 16),
                       )
                     ],
                   ),
-                  Column(
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  child: Column(
                     children: [
                       Container(
-                        width: 60,
-                        height: 60,
+                        width: 75,
+                        height: 75,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(40),
+                          color: Colors.yellow,
                         ),
                         child: IconButton(
                           iconSize: 30.0,
-                          color: Colors.white,
-                          icon: const Icon(Icons.deck_sharp),
-                          onPressed: () {},
+                          color: Colors.black,
+                          icon: const Icon(Icons.arrow_forward),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      AddingAd2(selectedCategory: "Others"),
+                                ));
+                          },
                         ),
                       ),
                       SizedBox(
                         height: 7,
                       ),
                       Text(
-                        "Ev Eşyaları",
+                        "Others",
                         style: TextStyle(fontSize: 16),
                       )
                     ],
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blue,
-                        ),
-                        child: IconButton(
-                          iconSize: 30.0,
-                          color: Colors.white,
-                          icon: const Icon(Icons.phone_android),
-                          onPressed: () {},
-                        ),
-                      ),
-                      SizedBox(
-                        height: 7,
-                      ),
-                      Text(
-                        "Teknoloji",
-                        style: TextStyle(fontSize: 16),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green[400],
-                        ),
-                        child: IconButton(
-                          iconSize: 30.0,
-                          color: Colors.white,
-                          icon: const Icon(Icons.gamepad),
-                          onPressed: () {},
-                        ),
-                      ),
-                      SizedBox(
-                        height: 7,
-                      ),
-                      Text(
-                        "Oyun",
-                        style: TextStyle(fontSize: 16),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blue,
-                        ),
-                        child: IconButton(
-                          iconSize: 30.0,
-                          color: Colors.white,
-                          icon: const Icon(Icons.deck_sharp),
-                          onPressed: () {},
-                        ),
-                      ),
-                      SizedBox(
-                        height: 7,
-                      ),
-                      Text(
-                        "Ev Eşyaları",
-                        style: TextStyle(fontSize: 16),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

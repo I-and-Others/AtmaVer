@@ -2,7 +2,7 @@ import 'package:atmaver_real/components/intro.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Settings extends StatefulWidget {  
+class Settings extends StatefulWidget {
   @override
   _SettingsState createState() => _SettingsState();
 }
@@ -21,7 +21,16 @@ class _SettingsState extends State<Settings> {
         MaterialPageRoute(builder: (context) => IntroPage()),
       );
     }
-    
+
+    Future getUserName() async {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      var username = preferences.getString('username');
+      setState(() {
+        _userName = username;
+      });
+    }
+
+    getUserName();
     return Scaffold(
         body: ListView(children: [
       Container(
@@ -59,7 +68,7 @@ class _SettingsState extends State<Settings> {
                 Container(
                     margin: EdgeInsets.only(left: 10.0),
                     child: Text(
-                      "Bilal Cinal",
+                      _userName != null ? _userName : "text",
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 20.0,
@@ -76,11 +85,16 @@ class _SettingsState extends State<Settings> {
           ],
         ),
       ),
-      TextButton(
-          child: Text('Log Out!'),
-          onPressed: () {
-            logOut();
-          })
+      Container(
+        child: TextButton(
+            child: Text(
+              'Log Out!',
+              style: TextStyle(fontSize: 20),
+            ),
+            onPressed: () {
+              logOut();
+            }),
+      )
     ]));
   }
 }

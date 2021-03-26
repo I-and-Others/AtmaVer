@@ -1,14 +1,34 @@
 import 'package:atmaver_real/components/AdDetail.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class AddingAd2 extends StatefulWidget {
+  final String selectedCategory;
+  AddingAd2({@required this.selectedCategory});
+
   @override
-  _AddingAd2State createState() => _AddingAd2State();
+  _AddingAd2State createState() =>
+      _AddingAd2State(selectedCategory: selectedCategory);
 }
 
 class _AddingAd2State extends State<AddingAd2> {
+  String selectedCategory;
+  String selectedType = '#talep';
+  String selectedState = 'Good';
   String dropdownValue = 'One';
+  final headerController = TextEditingController();
+  final descriptionController = TextEditingController();
+  _AddingAd2State({@required this.selectedCategory});
+
   @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    headerController.dispose();
+    descriptionController.dispose();
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -19,40 +39,45 @@ class _AddingAd2State extends State<AddingAd2> {
         Column(
           children: [
             Container(
-              // color: Colors.green,
               height: 120,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(left: 20, top: 20),
-                    child: Center(
-                        child: Text(
-                      "+",
-                      style: TextStyle(fontSize: 36),
-                    )),
                     width: 100,
                     height: 75,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
+                    margin: EdgeInsets.only(left: 20, top: 20),
+                    child: TextButton(
+                      child: Center(
+                          child: Text(
+                        "+",
+                        style: TextStyle(fontSize: 36),
+                      )),
+                      onPressed: () {},
+                    ),
                   ),
                   SizedBox(
-                    width: 16,
+                    width: 0,
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 20),
-                    child: Center(
-                        child: Text(
-                      "+",
-                      style: TextStyle(fontSize: 36),
-                    )),
                     width: 100,
                     height: 75,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    margin: EdgeInsets.only(left: 20, top: 20),
+                    child: TextButton(
+                      child: Center(
+                          child: Text(
+                        "+",
+                        style: TextStyle(fontSize: 36),
+                      )),
+                      onPressed: () {},
                     ),
                   ),
                   SizedBox(
@@ -125,7 +150,7 @@ class _AddingAd2State extends State<AddingAd2> {
                           width: 10.0,
                         ),
                         Text(
-                          "Kategori",
+                          "Category",
                           style: TextStyle(fontSize: 18),
                         )
                       ],
@@ -136,7 +161,7 @@ class _AddingAd2State extends State<AddingAd2> {
                           SizedBox(width: 10.0),
                           Expanded(
                             child: DropdownButton<String>(
-                              value: dropdownValue,
+                              value: selectedCategory,
                               isExpanded: true,
                               icon: const Icon(
                                 Icons.arrow_downward,
@@ -149,16 +174,17 @@ class _AddingAd2State extends State<AddingAd2> {
                                 height: 2,
                                 color: Colors.black,
                               ),
-                              onChanged: (String newValue) {
-                                setState(() {
-                                  dropdownValue = newValue;
-                                });
-                              },
                               items: <String>[
-                                'One',
-                                'Two',
-                                'Free',
-                                'Four'
+                                selectedCategory,
+                                'Technology',
+                                'Game',
+                                'Home',
+                                'Clothing',
+                                'Baby',
+                                'Decoration',
+                                'Book',
+                                'Fun',
+                                'Others',
                               ].map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -170,6 +196,12 @@ class _AddingAd2State extends State<AddingAd2> {
                                   ),
                                 );
                               }).toList(),
+                              onChanged: (String newValue) {
+                                print(newValue);
+                                setState(() {
+                                  selectedCategory = newValue + " ";
+                                });
+                              },
                             ),
                           ),
                           SizedBox(width: 10.0),
@@ -194,7 +226,7 @@ class _AddingAd2State extends State<AddingAd2> {
                           width: 10.0,
                         ),
                         Text(
-                          "Kategori",
+                          "Type",
                           style: TextStyle(fontSize: 18),
                         )
                       ],
@@ -205,7 +237,7 @@ class _AddingAd2State extends State<AddingAd2> {
                           SizedBox(width: 10.0),
                           Expanded(
                             child: DropdownButton<String>(
-                              value: dropdownValue,
+                              value: selectedType,
                               isExpanded: true,
                               icon: const Icon(
                                 Icons.arrow_downward,
@@ -220,14 +252,12 @@ class _AddingAd2State extends State<AddingAd2> {
                               ),
                               onChanged: (String newValue) {
                                 setState(() {
-                                  dropdownValue = newValue;
+                                  selectedType = newValue;
                                 });
                               },
                               items: <String>[
-                                'One',
-                                'Two',
-                                'Free',
-                                'Four'
+                                '#talep',
+                                '#teklif',
                               ].map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -250,8 +280,10 @@ class _AddingAd2State extends State<AddingAd2> {
             Container(
               margin: EdgeInsets.only(top: 30, left: 20, right: 20),
               child: TextFormField(
+                controller:
+                    headerController, // bilgiyi almak için headerController.text yapcan
                 decoration: InputDecoration(
-                  labelText: 'Başlık',
+                  labelText: 'Header',
                 ),
               ),
             ),
@@ -271,7 +303,7 @@ class _AddingAd2State extends State<AddingAd2> {
                           width: 10.0,
                         ),
                         Text(
-                          "Durum",
+                          "Product State",
                           style: TextStyle(fontSize: 18),
                         )
                       ],
@@ -282,7 +314,7 @@ class _AddingAd2State extends State<AddingAd2> {
                           SizedBox(width: 10.0),
                           Expanded(
                             child: DropdownButton<String>(
-                              value: dropdownValue,
+                              value: selectedState,
                               isExpanded: true,
                               icon: const Icon(
                                 Icons.arrow_downward,
@@ -297,14 +329,14 @@ class _AddingAd2State extends State<AddingAd2> {
                               ),
                               onChanged: (String newValue) {
                                 setState(() {
-                                  dropdownValue = newValue;
+                                  selectedState = newValue;
                                 });
                               },
                               items: <String>[
-                                'One',
-                                'Two',
-                                'Free',
-                                'Four'
+                                'Good',
+                                'Average',
+                                'Bad',
+                                'Poor'
                               ].map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -327,6 +359,8 @@ class _AddingAd2State extends State<AddingAd2> {
             Container(
               margin: EdgeInsets.only(top: 30, left: 20, right: 20),
               child: TextField(
+                controller:
+                    descriptionController, // bilgiyi almak için descriptionController.text yapcan
                 decoration: InputDecoration(
                   labelText: 'Açıklama',
                 ),

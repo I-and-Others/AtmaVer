@@ -23,6 +23,7 @@ environment:
 dependencies:
   jwt_decode:
   shared_preferences:
+  image_picker:
   flutter:
     sdk: flutter
 
