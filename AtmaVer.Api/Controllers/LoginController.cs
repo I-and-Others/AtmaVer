@@ -9,6 +9,10 @@ using AtmaVer.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using AtmaVer.Api.DTO.UserDTO;
+using AtmaVer.Api.Validators;
+using AtmaVer.Services.Helpers;
+using AutoMapper;
 
 namespace AtmaVer.Api.Controllers
 {
@@ -17,13 +21,17 @@ namespace AtmaVer.Api.Controllers
     public class LoginController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IUserRoleService _userRoleService;
         private readonly IConfiguration _config;
+        private readonly IMapper _mapper;
         
 
-        public LoginController(IUserService userService, IConfiguration config)
+        public LoginController(IUserService userService, IConfiguration config, IMapper mapper, IUserRoleService userRoleService)
         {
             this._userService = userService;
             this._config = config;
+            this._mapper = mapper;
+            this._userRoleService = userRoleService;
         }
 
 
@@ -68,10 +76,31 @@ namespace AtmaVer.Api.Controllers
             {
                 // LogsServices.Log("Login - GenerateJSONWebToken", ex.Message.ToString(), 3);
                 return null;
-            }
-            
+            }            
         }
-        //
+
+        [HttpPost("")]
+        public async Task<ActionResult<UserDTO>> CreateUser([FromBody] CreateUserDTO createUserResource)
+        {
+            var validator = new CreateUserResourceValidator();
+            var validationResult = await validator.ValidateAsync(createUserResource);
+
+            if (!validationResult.IsValid)
+                return BadRequest(validationResult.Errors); // this needs refining, but for demo it is ok
+
+            var userToCreate = _mapper.Map<CreateUserDTO, User>(createUserResource);
+            userToCreate.PasswordHash = HashHelper.CreatePasswordHash(createUserResource.Password, userToCreate.SecretKey);
+            var newUser = await _userService.CreateUser(userToCreate);
+
+            var user = await _userService.GetUserById(newUser.Id);
+            await _userRoleService.CreateUserRole(user.Id, 2); // Admin => 1, User => 2
+
+            var userResource = _mapper.Map<User, UserDTO>(user);
+
+            return Ok(userResource);
+        }
+
+        
         [ApiExplorerSettings(IgnoreApi = true)]//swagger tarafından görüllmesini istemidiğimiz fonksiyonlara yazılmalıdır.
         private string GenerateJSONWebToken(User user)
         {

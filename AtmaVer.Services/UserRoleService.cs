@@ -17,7 +17,7 @@ namespace AtmaVer.Services
             this._unitOfWork = unitOfWork;
         }
 
-        public async Task<UserRole> CreateUserRole(int userId, int  roleId)
+        public async Task<UserRole> CreateUserRole(int userId, int roleId)
         {
             UserRole newUserRole = new UserRole
             {

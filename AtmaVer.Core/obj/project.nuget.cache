@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "uLnDP4F+t8KAjThAaW8jRjoinCnb/WbVa3mjJj0dhN6AZCv20efoshT5lYTzbsoJjRncHXVaxYqIgpxEuJ5SMA==",
+  "dgSpecHash": "egAfxnPKqdDnYcvZa+NItKrOs5sNcbSx7orBUp/WMvnQv2R3md+QLwFF6lixWHCVCN8Q7NzBkK6Z4xk7FuUcXg==",
   "success": true,
   "projectFilePath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Core/AtmaVer.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/mvollstagg/.nuget/packages/microsoft.netcore.app.runtime.win-x86/5.0.3/microsoft.netcore.app.runtime.win-x86.5.0.3.nupkg.sha512",
+    "/Users/mvollstagg/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x86/5.0.3/microsoft.aspnetcore.app.runtime.win-x86.5.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

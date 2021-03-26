@@ -54,7 +54,7 @@ namespace AtmaVer.Api.Controllers
         }
 
         [HttpPost("")]
-        public async Task<ActionResult<AdvertisementDTO>> CreateUser([FromBody] AdvertisementDTO createAdvertisementResource)
+        public async Task<ActionResult<AdvertisementDTO>> CreateAdvertisement([FromBody] AdvertisementDTO createAdvertisementResource)
         {
             // var validator = new CreateUserResourceValidator();
             // var validationResult = await validator.ValidateAsync(createUserResource);

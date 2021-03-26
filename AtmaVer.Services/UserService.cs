@@ -20,12 +20,12 @@ namespace AtmaVer.Services
             await _unitOfWork.Users
                 .AddAsync(newUser);
 
-            UserRole newUserRole = new UserRole
-            {
-                UserId = GetUserById(newUser.Id).Id,
-                RoleId = _unitOfWork.Roles.SingleOrDefaultAsync(x => x.Name == "user").Id
-            };
-            await _unitOfWork.UserRoles.AddAsync(newUserRole);
+            // UserRole newUserRole = new UserRole
+            // {
+            //     UserId = GetUserById(newUser.Id).Id,
+            //     RoleId = _unitOfWork.Roles.SingleOrDefaultAsync(x => x.Name == "user").Id
+            // };
+            // await _unitOfWork.UserRoles.AddAsync(newUserRole);
             await _unitOfWork.CommitAsync();
             return newUser;
         }
@@ -55,8 +55,8 @@ namespace AtmaVer.Services
             userToBeUpdated.Email = user.Email;
             userToBeUpdated.PhoneNumber = user.PhoneNumber;
             userToBeUpdated.Gender = user.Gender;
-            userToBeUpdated.BirthDate = user.BirthDate;  
-            userToBeUpdated.PasswordHash = user.PasswordHash;          
+            userToBeUpdated.BirthDate = user.BirthDate;
+            userToBeUpdated.PasswordHash = user.PasswordHash;
 
             await _unitOfWork.CommitAsync();
         }
@@ -65,6 +65,6 @@ namespace AtmaVer.Services
         {
             var user = await _unitOfWork.Users.UserLogin(email, password);
             return user;
-        } 
+        }
     }
 }

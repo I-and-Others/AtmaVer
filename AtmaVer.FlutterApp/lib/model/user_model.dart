@@ -1,27 +1,75 @@
 import 'package:jwt_decode/jwt_decode.dart';
 
-class RoleResponseModel {
-  final int id;
-  final String name;
+class RegisterResponseModel {
+  final String firstName;
+  final String lastName;
+  final String userName;
+  final String email;
+  final String phoneNumber;
+  final String password;
+  final String passwordConfirm;
+  final String gender;
+  final String birthDate;
 
-  RoleResponseModel({this.id, this.name});
+  RegisterResponseModel(
+      {this.firstName,
+      this.lastName,
+      this.userName,
+      this.email,
+      this.phoneNumber,
+      this.password,
+      this.passwordConfirm,
+      this.gender,
+      this.birthDate});
 
-  factory RoleResponseModel.fromJson(Map<String, dynamic> json) {
-    return RoleResponseModel(
-      id: json["id"] != null ? json["id"] : "",
-      name: json["name"] != null ? json["name"] : "",
-    );
+  factory RegisterResponseModel.fromJson(Map<String, dynamic> json) {
+    return RegisterResponseModel(
+        firstName: json["firstName"] != null ? json["firstName"] : "",
+        lastName: json["lastName"] != null ? json["lastName"] : "",
+        userName: json["userName"] != null ? json["userName"] : "",
+        email: json["email"] != null ? json["email"] : "",
+        phoneNumber: json["phoneNumber"] != null ? json["phoneNumber"] : "",
+        password: json["password"] != null ? json["password"] : "",
+        passwordConfirm:
+        json["passwordConfirm"] != null ? json["passwordConfirm"] : "",
+        gender: json["gender"] != null ? json["gender"] : "",
+        birthDate: json["birthDate"] != null ? json["birthDate"] : "");
   }
 }
 
-class RoleRequestModel {
-  String token;
+class RegisterRequestModel {
+  String firstName;
+  String lastName;
+  String userName;
+  String email;
+  String phoneNumber;
+  String password;
+  String passwordConfirm;
+  String gender;
+  String birthDate;
 
-  RoleRequestModel({this.token});
+  RegisterRequestModel(
+      {this.firstName,
+      this.lastName,
+      this.userName,
+      this.email,
+      this.phoneNumber,
+      this.password,
+      this.passwordConfirm,
+      this.gender,
+      this.birthDate});
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> map = {
-      'token': token.trim(),
+      'firstName': firstName.trim(),
+      'lastName': lastName.trim(),
+      'userName': userName.trim(),
+      'email': email.trim(),
+      'phoneNumber': phoneNumber.trim(),
+      'password': password.trim(),
+      'passwordConfirm': passwordConfirm.trim(),
+      'gender': gender.trim(),
+      'birthDate': birthDate.trim(),
     };
 
     return map;

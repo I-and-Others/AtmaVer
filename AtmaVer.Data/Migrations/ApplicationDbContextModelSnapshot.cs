@@ -264,9 +264,9 @@ namespace AtmaVer.Data.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Name = "admin",
-                            RecordedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(1810),
+                            RecordedAtDate = new DateTime(2021, 3, 26, 22, 58, 54, 638, DateTimeKind.Local).AddTicks(6290),
                             SlugUrl = "admin",
-                            UpdatedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(1850),
+                            UpdatedAtDate = new DateTime(2021, 3, 26, 22, 58, 54, 638, DateTimeKind.Local).AddTicks(6330),
                             UrlId = 1
                         },
                         new
@@ -275,9 +275,9 @@ namespace AtmaVer.Data.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             Name = "user",
-                            RecordedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(8240),
+                            RecordedAtDate = new DateTime(2021, 3, 26, 22, 58, 54, 638, DateTimeKind.Local).AddTicks(8940),
                             SlugUrl = "user",
-                            UpdatedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 773, DateTimeKind.Local).AddTicks(8270),
+                            UpdatedAtDate = new DateTime(2021, 3, 26, 22, 58, 54, 638, DateTimeKind.Local).AddTicks(8950),
                             UrlId = 2
                         });
                 });
@@ -352,18 +352,18 @@ namespace AtmaVer.Data.Migrations
                         new
                         {
                             Id = 1,
-                            BirthDate = new DateTime(2021, 3, 7, 2, 36, 6, 761, DateTimeKind.Local).AddTicks(5440),
+                            BirthDate = new DateTime(2021, 3, 26, 22, 58, 54, 613, DateTimeKind.Local).AddTicks(6800),
                             Email = "admin@admin.com",
                             FirstName = "Admin",
                             Gender = "Male",
                             IsActive = true,
                             IsDeleted = false,
                             LastName = "Admin",
-                            PasswordHash = "0e1454d315361d746cc6e5a3f89c1288e2cb40cc028587659dabf8d6d605e475f530e8030a8930f521cfd25f5d7fd44f44b752da71b2e235fcdc996e6912fc0c",
+                            PasswordHash = "4169a2008a2aabf13b8d10801458d49c98dd616487c4e4d71745fb8b0b424c90ae3f386deb75ec193c91f301aa0507b371733e88d13adbd86b1dc2ae76540369",
                             PhoneNumber = "0534 895 22 84",
-                            RecordedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 761, DateTimeKind.Local).AddTicks(420),
-                            SecretKey = "2607dee3756d42bf89e231e1fd68b6243/7/202123606AM",
-                            UpdatedAtDate = new DateTime(2021, 3, 7, 2, 36, 6, 761, DateTimeKind.Local).AddTicks(480),
+                            RecordedAtDate = new DateTime(2021, 3, 26, 22, 58, 54, 613, DateTimeKind.Local).AddTicks(680),
+                            SecretKey = "486a1e6f09ce446fae81479f3c3787c33/26/2021105854PM",
+                            UpdatedAtDate = new DateTime(2021, 3, 26, 22, 58, 54, 613, DateTimeKind.Local).AddTicks(720),
                             UrlId = 0,
                             UserName = "mvollstagg"
                         });

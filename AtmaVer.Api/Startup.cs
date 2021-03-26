@@ -58,7 +58,7 @@ namespace AtmaVer.Api
             });
             services.AddControllers().AddJsonOptions(o => o.JsonSerializerOptions.DefaultBufferSize = 300);
             services.AddDbContext<ApplicationDbContext>(options => options
-                                                        .UseSqlServer(Configuration.GetConnectionString("DevConnection"), x => x.MigrationsAssembly("AtmaVer.Data")));
+                                                        .UseSqlServer(Configuration.GetConnectionString("DevConnection"), x => x.MigrationsAssembly("AtmaVer.Data")), ServiceLifetime.Transient);
 
             services.AddAuthentication(option => {  
                 option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;  
