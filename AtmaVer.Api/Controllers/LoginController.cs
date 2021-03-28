@@ -13,6 +13,7 @@ using AtmaVer.Api.DTO.UserDTO;
 using AtmaVer.Api.Validators;
 using AtmaVer.Services.Helpers;
 using AutoMapper;
+using AtmaVer.Services.Services;
 
 namespace AtmaVer.Api.Controllers
 {
@@ -22,16 +23,25 @@ namespace AtmaVer.Api.Controllers
     {
         private readonly IUserService _userService;
         private readonly IUserRoleService _userRoleService;
+        private readonly IUserImageService _userImageService;
         private readonly IConfiguration _config;
         private readonly IMapper _mapper;
+        private readonly IImage _image;
         
 
-        public LoginController(IUserService userService, IConfiguration config, IMapper mapper, IUserRoleService userRoleService)
+        public LoginController(IUserService userService, 
+                                IConfiguration config, 
+                                IMapper mapper, 
+                                IUserRoleService userRoleService, 
+                                IUserImageService userImageService,
+                                IImage image)
         {
             this._userService = userService;
             this._config = config;
             this._mapper = mapper;
             this._userRoleService = userRoleService;
+            this._userImageService = userImageService;
+            this._image = image;
         }
 
 
@@ -94,6 +104,7 @@ namespace AtmaVer.Api.Controllers
 
             var user = await _userService.GetUserById(newUser.Id);
             await _userRoleService.CreateUserRole(user.Id, 2); // Admin => 1, User => 2
+            await _userImageService.CreateUserImage(user.Id, await _image.UploadAsync(createUserResource.ProfilePhoto, "files", "media"));
 
             var userResource = _mapper.Map<User, UserDTO>(user);
 
@@ -101,7 +112,7 @@ namespace AtmaVer.Api.Controllers
         }
 
         
-        [ApiExplorerSettings(IgnoreApi = true)]//swagger tarafından görüllmesini istemidiğimiz fonksiyonlara yazılmalıdır.
+        [ApiExplorerSettings(IgnoreApi = true)] // It hides on swagger.
         private string GenerateJSONWebToken(User user)
         {
             try

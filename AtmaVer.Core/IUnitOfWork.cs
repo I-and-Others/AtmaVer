@@ -7,6 +7,7 @@ namespace AtmaVer.Core
     {
         IUserRepository Users { get; }
         IUserRoleRepository UserRoles { get; }
+        IUserImageRepository UserImages { get; }
         IRoleRepository Roles { get; }
         IAdvertisementRepository Advertisements { get; }
         IProductRepository Products { get; }

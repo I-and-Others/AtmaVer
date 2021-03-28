@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Dx+C0+o4tvbLBwt3fPUS61RAnsnXfvjJr9aIVvBGAvV7ZYsuNfZqKnI4ix4UcZ434dVKsz1KiAeundYa+/Qhhg==",
+  "dgSpecHash": "hGXwiYZx9Kc3ZsidQHZSoEjJQ12WCwZxhfC9D347XsZXDU9L8x2sH998i9lo1yttIgEPfPpMeoIQdeuMLwMb4A==",
   "success": true,
   "projectFilePath": "/Users/mvollstagg/Documents/GitHub/AtmaVer/AtmaVer.Services/AtmaVer.Services.csproj",
   "expectedPackageFiles": [
@@ -9,9 +9,7 @@
     "/Users/mvollstagg/.nuget/packages/microsoft.extensions.configuration.abstractions/5.0.0/microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
     "/Users/mvollstagg/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "/Users/mvollstagg/.nuget/packages/system.io.pipelines/5.0.1/system.io.pipelines.5.0.1.nupkg.sha512",
-    "/Users/mvollstagg/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512",
-    "/Users/mvollstagg/.nuget/packages/microsoft.netcore.app.runtime.win-x86/5.0.3/microsoft.netcore.app.runtime.win-x86.5.0.3.nupkg.sha512",
-    "/Users/mvollstagg/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x86/5.0.3/microsoft.aspnetcore.app.runtime.win-x86.5.0.3.nupkg.sha512"
+    "/Users/mvollstagg/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

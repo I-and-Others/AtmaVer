@@ -73,8 +73,8 @@ class _LoginState extends State<Login> {
                     ),
                     onPressed: () {
                       print(loginRequestModel.toJson());
-                      APIService apiService = new APIService();
-                      apiService.login(loginRequestModel).then((value) {
+                      LoginService loginService = new LoginService();
+                      loginService.login(loginRequestModel).then((value) {
                         if (value != null) {
                           if (value.token.isNotEmpty) {
                             print("token:" + value.token);

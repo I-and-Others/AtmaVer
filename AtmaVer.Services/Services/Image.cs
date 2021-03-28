@@ -14,7 +14,7 @@ namespace AtmaVer.Services.Services
                 Directory.CreateDirectory(folderPath);
             string fileExtension = file.ContentType.Substring(file.ContentType.IndexOf("/") + 1,
                                     file.ContentType.Length - file.ContentType.IndexOf("/") - 1);
-            string fileName = Guid.NewGuid().ToString() + "_" + "berqa" +  "." + fileExtension;
+            string fileName = Guid.NewGuid().ToString() + "_" + "atmaver" +  "." + fileExtension;
             string filePath = Path.Combine(folderPath, fileName);
             using (FileStream fileStream = new FileStream(filePath, FileMode.Create))
                 await file.CopyToAsync(fileStream);

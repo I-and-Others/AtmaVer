@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Http;
 
 namespace AtmaVer.Api.DTO.UserDTO
 {
@@ -13,5 +14,6 @@ namespace AtmaVer.Api.DTO.UserDTO
         public string PasswordConfirm { get; set; }
         public string Gender { get; set; }
         public DateTime BirthDate { get; set; }
+        public IFormFile ProfilePhoto { get; set; }
     }
 }

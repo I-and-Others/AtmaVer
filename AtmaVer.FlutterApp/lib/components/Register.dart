@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:atmaver_real/api/api_service.dart';
 import 'package:atmaver_real/model/user_model.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -34,6 +37,31 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(
                   height: 30.0,
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 18.0, top: 18.0),
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  child: ElevatedButton(
+                    child: Text("Profil Fotoğrafı Seç"),
+                    onPressed: () async{
+                      File _image;
+                      Future getImage() async {
+                        final pickedFile = await ImagePicker.pickImage(
+                            source: ImageSource.gallery);
+
+                        setState(() {
+                          if (pickedFile != null) {
+                            _image = File(pickedFile.path);
+                          } else {
+                            print('No image selected.');
+                          }
+                        });
+                      }
+
+                      await getImage();
+                      imageUpload(_image);
+                    },
+                  ),
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.8,
@@ -142,24 +170,25 @@ class _RegisterState extends State<Register> {
                     ),
                     onPressed: () {
                       print(registerModel.toJson());
-                      RegisterService apiService = new RegisterService();
-                      apiService.register(registerModel).then((value) {
-                        if (value != null) {
-                          if (value.userName.isNotEmpty) {
-                            print("Kayıt başarılı: " + value.userName);
-                            // checkLogin(value.token);
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(builder: (context) => Layout()),
-                            // );
-                          } else {
-                            print("başarısız");
-                          }
-                        }
-                      });
+
+                      // RegisterService apiService = new RegisterService();
+                      // apiService.register(registerModel).then((value) {
+                      //   if (value != null) {
+                      //     if (value.userName.isNotEmpty) {
+                      //       print("Kayıt başarılı: " + value.userName);
+                      //       // checkLogin(value.token);
+                      //       // Navigator.push(
+                      //       //   context,
+                      //       //   MaterialPageRoute(builder: (context) => Layout()),
+                      //       // );
+                      //     } else {
+                      //       print("başarısız");
+                      //     }
+                      //   }
+                      // });
                     },
                   ),
-                ),
+                )
               ],
             ),
           ],
@@ -167,4 +196,17 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
+}
+
+Future imageUpload(File image) async {
+  UploadImage apiService = new UploadImage();
+  apiService.upload(image).then((value) {
+    if (value != null) {
+      if (value) {
+        print("Profil Fotoğrafı başarıyla yüklendi!");
+      } else {
+        print("başarısız");
+      }
+    }
+  });
 }

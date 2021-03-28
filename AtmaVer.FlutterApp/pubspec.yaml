@@ -23,7 +23,9 @@ environment:
 dependencies:
   jwt_decode:
   shared_preferences:
-  image_picker:
+  image_picker: 
+  dio: 
+  http:
   flutter:
     sdk: flutter
 
@@ -31,8 +33,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-dev_dependencies:
-  http:
+dev_dependencies:  
   flutter_test:
     sdk: flutter
 

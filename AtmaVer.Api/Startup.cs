@@ -27,6 +27,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using AtmaVer.Services.Services;
 
 namespace AtmaVer.Api
 {
@@ -50,8 +51,10 @@ namespace AtmaVer.Api
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRoleService, UserRoleService>();
+            services.AddScoped<IUserImageService, UserImageService>();
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IAdvertisementService, AdvertisementService>();
+            services.AddScoped<IImage, Image>();
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().Build());

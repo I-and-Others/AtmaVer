@@ -18,5 +18,6 @@ namespace AtmaVer.Api.DTO.UserDTO
         public string SecretKey { get; set; } 
         public string Gender { get; set; }
         public DateTime BirthDate { get; set; }
+        public UserImageDTO ProfilePhoto { get; set; }
     }
 }
