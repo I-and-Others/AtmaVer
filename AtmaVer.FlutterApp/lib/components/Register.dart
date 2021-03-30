@@ -1,9 +1,13 @@
+import 'dart:ffi';
 import 'dart:io';
 
+import 'package:atmaver_real/Layout/StreamLayout.dart';
 import 'package:atmaver_real/api/api_service.dart';
+import 'package:atmaver_real/model/login_model.dart';
 import 'package:atmaver_real/model/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -43,7 +47,7 @@ class _RegisterState extends State<Register> {
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: ElevatedButton(
                     child: Text("Profil Fotoğrafı Seç"),
-                    onPressed: () async{
+                    onPressed: () async {
                       File _image;
                       Future getImage() async {
                         final pickedFile = await ImagePicker.pickImage(
@@ -171,21 +175,22 @@ class _RegisterState extends State<Register> {
                     onPressed: () {
                       print(registerModel.toJson());
 
-                      // RegisterService apiService = new RegisterService();
-                      // apiService.register(registerModel).then((value) {
-                      //   if (value != null) {
-                      //     if (value.userName.isNotEmpty) {
-                      //       print("Kayıt başarılı: " + value.userName);
-                      //       // checkLogin(value.token);
-                      //       // Navigator.push(
-                      //       //   context,
-                      //       //   MaterialPageRoute(builder: (context) => Layout()),
-                      //       // );
-                      //     } else {
-                      //       print("başarısız");
-                      //     }
-                      //   }
-                      // });
+                      RegisterService apiService = new RegisterService();
+                      apiService.register(registerModel).then((value) {
+                        if (value != null) {
+                          if (value.userName.isNotEmpty) {
+                            print("Kayıt başarılı: " + value.userName);
+                            checkLogin(
+                                registerModel.email, registerModel.password);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Layout()),
+                            );
+                          } else {
+                            print("kayıt başarısız");
+                          }
+                        }
+                      });
                     },
                   ),
                 )
@@ -209,4 +214,25 @@ Future imageUpload(File image) async {
       }
     }
   });
+}
+
+checkLogin(String email, String password) async {
+  try {
+    LoginRequestModel requestModel =
+        new LoginRequestModel(email: email, password: password);
+    LoginService loginService = new LoginService();
+    loginService.login(requestModel).then((value) async {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      JwtDecoder jwtDecoder = new JwtDecoder();
+      print("bu tokendır" + value.token);
+      String username = jwtDecoder.decode(value.token)["sub"];
+      print("bu usernamedir" + username);
+
+      preferences.setString('token', value.token);
+      preferences.setString('username', username);
+      print("Username aha budur:" + preferences.getString('username'));
+    });
+  } catch (e) {
+    print(e);
+  }
 }

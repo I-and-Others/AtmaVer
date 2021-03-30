@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 
 import 'package:atmaver_real/model/user_model.dart';
@@ -81,7 +79,6 @@ class UploadImage {
     Dio dio = new Dio();
     String url = "https://localhost:5001/api/Images/CreateUserImage";
 
-    
     // try {
     //   String fileName = pickedImage.path.split('/').last;
     //   FormData formData = new FormData.fromMap({
@@ -101,9 +98,9 @@ class UploadImage {
     //   return null;
     // }
     FormData formData = new FormData.fromMap({
-        "userId": 2,
-        "file": await http.MultipartFile.fromPath(pickedImage.path, "")
-      });
+      "userId": 2,
+      "file": await http.MultipartFile.fromPath(pickedImage.path, "")
+    });
 
     final response = await http.post(
       Uri.parse(url),
