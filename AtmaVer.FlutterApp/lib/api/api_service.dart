@@ -76,45 +76,47 @@ class RegisterService {
 
 class UploadImage {
   Future<bool> upload(File pickedImage) async {
-    Dio dio = new Dio();
-    String url = "https://localhost:5001/api/Images/CreateUserImage";
-
+    // Dio dio = new Dio();
+    // String url = "http://atmaver.somee.com/api/Images/CreateUserImage?userId=2";
     // try {
     //   String fileName = pickedImage.path.split('/').last;
     //   FormData formData = new FormData.fromMap({
-    //     "userId": 2,
-    //     "file": await http.MultipartFile.fromPath(pickedImage.path, "")
+    //     "userId": 1,
+    //     "file": await MultipartFile.fromFile(pickedImage.path,
+    //         filename: fileName, contentType: MediaType("image", "jpeg")),
+    //     "type": "image/jpeg"
     //   });
-    //    await dio.post(url,
-    //   data: formData,
-    //   options: Options(headers: {
-    //     "accept": "*/*",
-    //     "Authorization": "Bearer accesstoken",
-    //     "Content-Type": "multipart/form-data"
-    //   }));
+
+    //   await dio.post(url,
+    //       data: formData,
+    //       options: Options(
+    //         method: 'POST',
+    //         responseType: ResponseType.plain,
+    //         headers: {
+    //           "accept": "*/*",
+    //           // "Authorization": "Bearer accesstoken",
+    //           "Content-Type": "multipart/form-data"
+    //         },
+    //       ));
 
     //   print("response");
     // } catch (e) {
     //   return null;
     // }
-    FormData formData = new FormData.fromMap({
-      "userId": 2,
-      "file": await http.MultipartFile.fromPath(pickedImage.path, "")
-    });
 
-    final response = await http.post(
-      Uri.parse(url),
-      body: jsonEncode(formData),
-      headers: <String, String>{
-        "accept": "*/*",
-        "Authorization": "Bearer accesstoken",
-        "Content-Type": "multipart/form-data"
-      },
-    );
-    if (response.statusCode == 200 || response.statusCode == 400) {
-      return true;
-    } else {
-      throw Exception('Failed to load data!');
-    }
+    // final response = await http.post(
+    //   Uri.parse(url),
+    //   body: jsonEncode(formData),
+    //   headers: <String, String>{
+    //     "accept": "*/*",
+    //     "Authorization": "Bearer accesstoken",
+    //     "Content-Type": "multipart/form-data"
+    //   },
+    // );
+    // if (response.statusCode == 200 || response.statusCode == 400) {
+    //   return true;
+    // } else {
+    //   throw Exception('Failed to load data!');
+    // }
   }
 }

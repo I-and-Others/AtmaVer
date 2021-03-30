@@ -17,7 +17,7 @@ class AdDetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("İlan Detay"),
+        title: Text("Advertisement Detail"),
       ),
       body: ListView(
         children: [
@@ -134,7 +134,7 @@ class AdDetail extends StatelessWidget {
                             enabledBorder: InputBorder.none,
                             errorBorder: InputBorder.none,
                             disabledBorder: InputBorder.none,
-                            hintText: 'Mesaj Gönder',
+                            hintText: 'Send Message',
                             hintStyle:
                                 TextStyle(fontSize: 18.0, color: Colors.black),
                           ),

@@ -24,7 +24,7 @@ class IntroPage extends StatelessWidget {
                   margin: EdgeInsets.only(bottom: 20.0),
                   child: ElevatedButton(
                     child: Text(
-                      'Giriş Yap',
+                      'Login',
                       style: TextStyle(fontSize: 20.0),
                     ),
                     onPressed: () {
@@ -40,7 +40,7 @@ class IntroPage extends StatelessWidget {
                   height: 50.0,
                   child: ElevatedButton(
                     child: Text(
-                      'Üye Ol',
+                      'Register',
                       style: TextStyle(fontSize: 20.0),
                     ),
                     onPressed: () {

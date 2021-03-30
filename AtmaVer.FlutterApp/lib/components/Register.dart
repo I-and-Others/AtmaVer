@@ -46,7 +46,7 @@ class _RegisterState extends State<Register> {
                   margin: EdgeInsets.only(bottom: 18.0, top: 18.0),
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: ElevatedButton(
-                    child: Text("Profil Fotoğrafı Seç"),
+                    child: Text("Select Profile Picture"),
                     onPressed: () async {
                       File _image;
                       Future getImage() async {
@@ -73,7 +73,7 @@ class _RegisterState extends State<Register> {
                     onChanged: (input) => registerModel.firstName = input,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Ad',
+                      labelText: 'Name',
                     ),
                   ),
                 ),
@@ -83,7 +83,7 @@ class _RegisterState extends State<Register> {
                     onChanged: (input) => registerModel.lastName = input,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Soyad',
+                      labelText: 'Surname',
                     ),
                   ),
                 ),
@@ -94,7 +94,7 @@ class _RegisterState extends State<Register> {
                     onChanged: (input) => registerModel.userName = input,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Kullanıcı Adı',
+                      labelText: 'Username',
                     ),
                   ),
                 ),
@@ -115,7 +115,7 @@ class _RegisterState extends State<Register> {
                     onChanged: (input) => registerModel.phoneNumber = input,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Telefon Numarası',
+                      labelText: 'Phone Number',
                     ),
                   ),
                 ),
@@ -126,7 +126,7 @@ class _RegisterState extends State<Register> {
                     obscureText: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Şifre',
+                      labelText: 'Password',
                     ),
                   ),
                 ),
@@ -137,7 +137,7 @@ class _RegisterState extends State<Register> {
                     obscureText: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Şifre Tekrar',
+                      labelText: 'Confirm Password',
                     ),
                   ),
                 ),
@@ -148,7 +148,7 @@ class _RegisterState extends State<Register> {
                     onChanged: (input) => registerModel.gender = input,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Cinsiyet',
+                      labelText: 'Gender',
                     ),
                   ),
                 ),
@@ -159,7 +159,7 @@ class _RegisterState extends State<Register> {
                     onChanged: (input) => registerModel.birthDate = input,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Doğum Tarihi',
+                      labelText: 'Birthdate',
                     ),
                   ),
                 ),
@@ -169,7 +169,7 @@ class _RegisterState extends State<Register> {
                   height: 50.0,
                   child: ElevatedButton(
                     child: Text(
-                      'Üye Ol',
+                      'Register',
                       style: TextStyle(fontSize: 20.0),
                     ),
                     onPressed: () {
@@ -179,7 +179,7 @@ class _RegisterState extends State<Register> {
                       apiService.register(registerModel).then((value) {
                         if (value != null) {
                           if (value.userName.isNotEmpty) {
-                            print("Kayıt başarılı: " + value.userName);
+                            print("Successful Register: " + value.userName);
                             checkLogin(
                                 registerModel.email, registerModel.password);
                             Navigator.push(
@@ -187,7 +187,7 @@ class _RegisterState extends State<Register> {
                               MaterialPageRoute(builder: (context) => Layout()),
                             );
                           } else {
-                            print("kayıt başarısız");
+                            print("Register error");
                           }
                         }
                       });

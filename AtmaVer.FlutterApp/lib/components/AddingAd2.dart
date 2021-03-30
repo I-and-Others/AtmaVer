@@ -14,7 +14,7 @@ class AddingAd2 extends StatefulWidget {
 
 class _AddingAd2State extends State<AddingAd2> {
   String selectedCategory;
-  String selectedType = '#talep';
+  String selectedType = '#request';
   String selectedState = 'Good';
   String dropdownValue = 'One';
   final headerController = TextEditingController();
@@ -23,7 +23,6 @@ class _AddingAd2State extends State<AddingAd2> {
 
   @override
   void dispose() {
-    // Clean up the controller when the widget is disposed.
     headerController.dispose();
     descriptionController.dispose();
     super.dispose();
@@ -33,7 +32,7 @@ class _AddingAd2State extends State<AddingAd2> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("İlan Ekle"),
+        title: Text("Add advertisement"),
       ),
       body: ListView(children: [
         Column(
@@ -176,15 +175,15 @@ class _AddingAd2State extends State<AddingAd2> {
                               ),
                               items: <String>[
                                 selectedCategory,
-                                'Technology',
-                                'Game',
-                                'Home',
-                                'Clothing',
-                                'Baby',
-                                'Decoration',
-                                'Book',
-                                'Fun',
-                                'Others',
+                                'Technology ',
+                                'Game ',
+                                'Home ',
+                                'Clothing ',
+                                'Baby ',
+                                'Decoration ',
+                                'Book ',
+                                'Fun ',
+                                'Others ',
                               ].map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -256,8 +255,8 @@ class _AddingAd2State extends State<AddingAd2> {
                                 });
                               },
                               items: <String>[
-                                '#talep',
-                                '#teklif',
+                                '#request',
+                                '#offer',
                               ].map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -280,8 +279,7 @@ class _AddingAd2State extends State<AddingAd2> {
             Container(
               margin: EdgeInsets.only(top: 30, left: 20, right: 20),
               child: TextFormField(
-                controller:
-                    headerController, // bilgiyi almak için headerController.text yapcan
+                controller: headerController,
                 decoration: InputDecoration(
                   labelText: 'Header',
                 ),
@@ -362,7 +360,7 @@ class _AddingAd2State extends State<AddingAd2> {
                 controller:
                     descriptionController, // bilgiyi almak için descriptionController.text yapcan
                 decoration: InputDecoration(
-                  labelText: 'Açıklama',
+                  labelText: 'Description',
                 ),
               ),
             ),
@@ -372,7 +370,7 @@ class _AddingAd2State extends State<AddingAd2> {
               height: 50.0,
               child: ElevatedButton(
                 child: Text(
-                  'Yükle',
+                  'Upload',
                   style: TextStyle(fontSize: 20.0),
                 ),
                 onPressed: () {
@@ -382,10 +380,10 @@ class _AddingAd2State extends State<AddingAd2> {
                         builder: (context) => AdDetail(
                             id: 12,
                             imageURL: "lib/assets/gomlek.jpg",
-                            title: "eklenen ilan",
-                            location: "eklenen ilan",
-                            type: "eklenen ilan",
-                            description: "eklenen ilan"),
+                            title: "added advertisement",
+                            location: "added advertisement",
+                            type: "added advertisement",
+                            description: "added advertisement"),
                       ));
                 },
               ),

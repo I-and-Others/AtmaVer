@@ -38,7 +38,7 @@ class _FilterPageState extends State<FilterPage> {
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: Column(
                       children: [
-                        Text("Mesafe: $_currentSliderValue",
+                        Text("Distance: $_currentSliderValue",
                             style: TextStyle(
                                 fontSize: 20.0, fontWeight: FontWeight.bold)),
                         Slider(
@@ -65,7 +65,7 @@ class _FilterPageState extends State<FilterPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Sıralama",
+                            Text("Sort by",
                                 style: TextStyle(
                                     fontSize: 22.0,
                                     fontWeight: FontWeight.bold)),
@@ -85,7 +85,7 @@ class _FilterPageState extends State<FilterPage> {
                                   borderRadius: BorderRadius.circular(30),
                                   color: Colors.grey[700]),
                               child: Center(
-                                child: Text("Akıllı Sıralama",
+                                child: Text("Smart Sort",
                                     style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
@@ -100,7 +100,7 @@ class _FilterPageState extends State<FilterPage> {
                                   borderRadius: BorderRadius.circular(30),
                                   color: Colors.grey[700]),
                               child: Center(
-                                child: Text("Önce En Yeni",
+                                child: Text("New First",
                                     style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
@@ -123,7 +123,7 @@ class _FilterPageState extends State<FilterPage> {
                                   borderRadius: BorderRadius.circular(30),
                                   color: Colors.grey[700]),
                               child: Center(
-                                child: Text("Önce En Yakın",
+                                child: Text("Close First",
                                     style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
@@ -146,9 +146,9 @@ class _FilterPageState extends State<FilterPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("İlan Tarihi",
+                            Text("Advertisement Date+",
                                 style: TextStyle(
-                                    fontSize: 22.0,
+                                    fontSize: 20.0,
                                     fontWeight: FontWeight.bold)),
                           ],
                         ),
@@ -166,7 +166,7 @@ class _FilterPageState extends State<FilterPage> {
                                   borderRadius: BorderRadius.circular(30),
                                   color: Colors.grey[700]),
                               child: Center(
-                                child: Text("Bütün İlanlar",
+                                child: Text("All Ads",
                                     style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
@@ -181,7 +181,7 @@ class _FilterPageState extends State<FilterPage> {
                                   borderRadius: BorderRadius.circular(30),
                                   color: Colors.grey[700]),
                               child: Center(
-                                child: Text("Son 24 Saat",
+                                child: Text("Last 24 hours",
                                     style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
@@ -204,7 +204,7 @@ class _FilterPageState extends State<FilterPage> {
                                   borderRadius: BorderRadius.circular(30),
                                   color: Colors.grey[700]),
                               child: Center(
-                                child: Text("Son 7 Gün",
+                                child: Text("Last 7 days",
                                     style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
@@ -219,7 +219,7 @@ class _FilterPageState extends State<FilterPage> {
                                   borderRadius: BorderRadius.circular(30),
                                   color: Colors.grey[700]),
                               child: Center(
-                                child: Text("Son 30 Gün",
+                                child: Text("Last 30 days",
                                     style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
@@ -239,7 +239,7 @@ class _FilterPageState extends State<FilterPage> {
                         BoxDecoration(borderRadius: BorderRadius.circular(40)),
                     child: ElevatedButton(
                       child: Text(
-                        'Uygula',
+                        'Apply',
                         style: TextStyle(fontSize: 20.0),
                       ),
                       onPressed: () {

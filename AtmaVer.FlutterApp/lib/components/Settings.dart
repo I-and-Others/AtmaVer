@@ -40,7 +40,7 @@ class _SettingsState extends State<Settings> {
           children: [
             Container(
               child: Text(
-                "Ayarlar",
+                "Settings",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),

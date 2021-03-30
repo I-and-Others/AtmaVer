@@ -80,19 +80,19 @@ class _LayoutState extends State<Layout> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
-            label: 'İlanlar',
+            label: 'Ads',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.reduce_capacity_outlined),
-            label: 'Takas',
+            label: 'Trade',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.message_sharp),
-            label: 'Mesajlar',
+            label: 'Messages',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: 'Ayarlar',
+            label: 'Settings',
           ),
         ],
         currentIndex: _selectedIndex,

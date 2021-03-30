@@ -23,7 +23,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Giriş"),
+        title: Text("Login"),
       ),
       body: ListView(
         children: [
@@ -68,7 +68,7 @@ class _LoginState extends State<Login> {
                   height: 50.0,
                   child: ElevatedButton(
                     child: Text(
-                      'Giriş Yap',
+                      'Login',
                       style: TextStyle(fontSize: 20.0),
                     ),
                     onPressed: () {
@@ -100,11 +100,11 @@ class _LoginState extends State<Login> {
   }
 }
 
-Future checkLogin(String token) async{
+Future checkLogin(String token) async {
   SharedPreferences preferences = await SharedPreferences.getInstance();
   JwtDecoder jwtDecoder = new JwtDecoder();
   String username = jwtDecoder.decode(token)["sub"];
-  
+
   preferences.setString('token', token);
   preferences.setString('username', username);
   print("Username aha budur:" + preferences.getString('username'));

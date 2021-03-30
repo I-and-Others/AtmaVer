@@ -24,36 +24,36 @@ class _StreamPageState extends State<StreamPage> {
             StreamCard(
               id: 0,
               imageURL: "lib/assets/gomlek.jpg",
-              title: "Gömlek",
-              location: "İstanbul/Bahçelievler",
-              type: "#talep",
+              title: "Shirt",
+              location: "Istanbul/Bahçelievler",
+              type: "#request",
               description:
                   "2. el gömlek. İhtiyacı olan mesaj atabilir. Kargo ücreti benden. Az giyilmiş, temizdir.",
             ),
             StreamCard(
               id: 1,
               imageURL: "lib/assets/canta.jpg",
-              title: "Çanta",
-              location: "İstanbul/Pendik",
-              type: "#teklif",
+              title: "Bag",
+              location: "Istanbul/Pendik",
+              type: "#offer",
               description:
                   "2. el gömlek. İhtiyacı olan mesaj atabilir. Kargo ücreti benden. Az giyilmiş, temizdir.",
             ),
             StreamCard(
               id: 2,
               imageURL: "lib/assets/ceket.png",
-              title: "Ceket",
+              title: "Jacket",
               location: "Düzce Üniversitesi",
-              type: "#talep",
+              type: "#request",
               description:
                   "2. el gömlek. İhtiyacı olan mesaj atabilir. Kargo ücreti benden. Az giyilmiş, temizdir.",
             ),
             StreamCard(
               id: 3,
               imageURL: "lib/assets/masa.jpg",
-              title: "Masa",
+              title: "Desk",
               location: "Düzce Üniversitesi",
-              type: "#talep",
+              type: "#offer",
               description:
                   "2. el gömlek. İhtiyacı olan mesaj atabilir. Kargo ücreti benden. Az giyilmiş, temizdir.",
             ),
@@ -117,8 +117,6 @@ class StreamCard extends StatelessWidget {
           children: [
             Image.asset(
               imageURL,
-              // width: double.infinity,
-              // fit: BoxFit.contain,
               height: 250.0,
             ),
             Container(
